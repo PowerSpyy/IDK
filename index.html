@@ -1,0 +1,16 @@
+<form id="form">
+  <input id="input" placeholder="unblock stuff ig">
+</form>
+<script>
+  document.getElementById("form").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  try {
+    await registerSW();
+  } catch (err) {
+    alert(err.toString());
+    throw err;
+  }
+    var url = search(document.getElementById("input").value,"https://www.google.com/?q=%s");
+  window.location.href=__uv$config.prefix + __uv$config.encodeUrl(url);
+  });
+</script>
